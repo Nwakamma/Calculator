@@ -1,0 +1,48 @@
+<resources>
+    <!-- Base Application Theme -->
+    <style name="Theme.Calculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="CalcButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="CalcButton.Number" parent="CalcButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="backgroundTint">@color/button_number</item>
+        <item name="rippleColor">@color/ripple_number</item>
+    </style>
+
+    <style name="CalcButton.Operator" parent="CalcButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="backgroundTint">@color/button_operator</item>
+        <item name="rippleColor">@color/ripple_operator</item>
+    </style>
+
+    <style name="CalcButton.Action" parent="CalcButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="backgroundTint">@color/button_action</item>
+        <item name="rippleColor">@color/ripple_action</item>
+    </style>
+
+    <style name="CalcButton.Scientific" parent="CalcButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="backgroundTint">@color/button_scientific</item>
+        <item name="rippleColor">@color/ripple_scientific</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>

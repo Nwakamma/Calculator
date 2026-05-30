@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_main">
+
+    <!-- Top Bar -->
+    <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20pt"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Calculator"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
+
+        <ImageButton
+                android:id="@+id/btnSwitchMode"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_button_round"
+                android:src="@drawable/function_24"
+                android:contentDescription="Switch to Scientific Mode"
+                app:tint="@color/accent_purple" />
+    </LinearLayout>
+
+    <!-- Display Screen -->
+    <androidx.cardview.widget.CardView
+            android:id="@+id/displayCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/display_bg"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/topBar"
+            app:layout_constraintBottom_toTopOf="@id/buttonPanel"
+            app:layout_constraintHeight_percent="0.30">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:orientation="vertical"
+                android:gravity="bottom|end"
+                android:padding="24dp" tools:ignore="ExtraText">
+
+            <TextView
+                    android:id="@+id/tvExpression"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_secondary"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-light"
+                    android:maxLines="1"
+                    android:ellipsize="start"
+                    tools:ignore="Suspicious0dp"
+                    android:singleLine="true"
+
+
+            />
+
+            <TextView
+                    android:id="@+id/tvResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Button Panel -->
+    <androidx.cardview.widget.CardView
+            android:id="@+id/buttonPanel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="28dp"
+            app:cardBackgroundColor="@color/panel_bg"
+            app:cardElevation="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/displayCard">
+
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="4"
+                android:rowCount="5"
+                android:padding="16dp"
+                android:layout_marginBottom="20pt"
+                android:useDefaultMargins="true">
+
+            <!-- Row 1: Clear, Delete, Percent, Divide -->
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClear"
+                    style="@style/CalcButton.Action"
+                    android:text="AC"
+                    app:backgroundTint="@color/action_red" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelete"
+                    style="@style/CalcButton.Action"
+                    android:text="⌫"
+                    app:backgroundTint="@color/action_orange" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPercent"
+                    style="@style/CalcButton.Action"
+                    android:text="%"
+                    app:backgroundTint="@color/action_teal" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDivide"
+                    style="@style/CalcButton.Operator"
+                    android:text="÷" />
+
+            <!-- Row 2: 7, 8, 9, Multiply -->
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn7"
+                    style="@style/CalcButton.Number"
+                    android:text="7" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn8"
+                    style="@style/CalcButton.Number"
+                    android:text="8" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn9"
+                    style="@style/CalcButton.Number"
+                    android:text="9" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMultiply"
+                    style="@style/CalcButton.Operator"
+                    android:text="×" />
+
+            <!-- Row 3: 4, 5, 6, Subtract -->
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn4"
+                    style="@style/CalcButton.Number"
+                    android:text="4" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn5"
+                    style="@style/CalcButton.Number"
+                    android:text="5" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn6"
+                    style="@style/CalcButton.Number"
+                    android:text="6" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubtract"
+                    style="@style/CalcButton.Operator"
+                    android:text="−" />
+
+            <!-- Row 4: 1, 2, 3, Add -->
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn1"
+                    style="@style/CalcButton.Number"
+                    android:text="1" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn2"
+                    style="@style/CalcButton.Number"
+                    android:text="2" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn3"
+                    style="@style/CalcButton.Number"
+                    android:text="3" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdd"
+                    style="@style/CalcButton.Operator"
+                    android:text="+" />
+
+
+
+            <!-- Row 5: 0, Dot, Equals -->
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn0"
+                    style="@style/CalcButton.Number"
+                    android:layout_columnSpan="2"
+                    android:text="0" android:layout_width="58dp"/>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDot"
+                    style="@style/CalcButton.Number"
+                    android:text="." />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEquals"
+                    style="@style/CalcButton.Operator"
+                    android:text="="
+                    app:backgroundTint="@color/accent_purple" />
+
+
+        </GridLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
